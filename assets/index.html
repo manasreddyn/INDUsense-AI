@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
-
     <title>Gemma Motor Monitor</title>
-
     <link
         rel="stylesheet"
         href="style.css"
@@ -17,11 +14,6 @@
 </head>
 
 <body>
-
-<!-- =====================================================
-     CINEMATIC MOTOR INTRO
-====================================================== -->
-
 <div id="motorIntro" class="motor-intro">
 
     <div class="intro-grid"></div>
@@ -320,10 +312,7 @@
 </div>
 
 
-<!-- =====================================================
-     DASHBOARD
-====================================================== -->
-
+<!-- DASHBOARD-->
 <div id="dashboard" class="dashboard-shell dashboard-hidden">
 
     <div class="container">
@@ -336,7 +325,7 @@
                 </div>
 
                 <h1>
-                   NITTENOVA MOTOR MONITOR
+                   INDUsense AI MOTOR MONITOR
                 </h1>
 
                 <p>
@@ -352,10 +341,6 @@
             </div>
 
         </header>
-
-
-        <!-- HERO MOTOR STATUS -->
-
         <section class="motor-hero panel">
 
             <div class="motor-hero-copy">
@@ -497,11 +482,8 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="card metric-card">
                     <div class="metric-icon">R</div>
-
                     <div>
                         <div class="label">
                             RELAY
@@ -568,10 +550,7 @@
             </div>
 
         </section>
-
-
         <!-- CONTROLLER -->
-
         <section class="panel">
 
             <div class="section-heading">
@@ -585,8 +564,6 @@
                     </h2>
                 </div>
             </div>
-
-
             <div class="grid">
 
                 <div class="card">
@@ -601,8 +578,6 @@
                         NOT ARMED
                     </div>
                 </div>
-
-
                 <div class="card">
                     <div class="label">
                         SETTLING
@@ -619,10 +594,7 @@
             </div>
 
         </section>
-
-
         <!-- GEMMA CHAT -->
-
         <section class="chat-panel">
 
             <div class="section-heading">
@@ -640,14 +612,10 @@
                     GEMMA 3 • 1B
                 </div>
             </div>
-
-
             <p class="chat-info">
                 Gemma receives the current motor readings
                 only when you ask a question.
             </p>
-
-
             <div
                 id="chatMessages"
                 class="chat-messages"
@@ -686,24 +654,15 @@
                 <button id="sendButton">
                     Ask Gemma
                 </button>
-
             </div>
-
         </section>
-
-
         <footer>
             MCU controls protection • Gemma monitors and explains
         </footer>
-
     </div>
-
 </div>
-
-
 <script src="libs/socket.io.min.js"></script>
 <script src="libs/arduino.js"></script>
 <script src="app.js"></script>
-
 </body>
 </html>
