@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Gemma Motor Monitor</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+<!-- =====================================================
+     CINEMATIC MOTOR INTRO
+====================================================== -->
+
+<div id="motorIntro" class="motor-intro">
+
+    <div class="intro-grid"></div>
+    <div class="intro-glow intro-glow-one"></div>
+    <div class="intro-glow intro-glow-two"></div>
+
+    <div class="intro-topbar">
+        <div class="brand-chip">
+            <span class="brand-dot"></span>
+            UNO Q MOTOR INTELLIGENCE
+        </div>
+
+        <button id="skipIntro" class="skip-intro">
+            SKIP INTRO
+        </button>
+    </div>
+
+    <div class="intro-content">
+
+        <div class="intro-copy">
+            <div class="eyebrow">
+                REAL-TIME MOTOR PROTECTION
+            </div>
+
+            <h1>
+                Power flows in.
+                <span>Intelligence wakes up.</span>
+            </h1>
+
+            <p>
+                INA219 sensing, deterministic relay protection,
+                live telemetry and Gemma-powered explanations.
+            </p>
+
+            <div class="intro-status-line">
+                <span class="pulse-dot"></span>
+                INITIALIZING MOTOR DIGITAL TWIN
+            </div>
+        </div>
+
+        <div class="motor-stage">
+
+            <!-- Animated energy path -->
+            <div class="energy-rail">
+                <span class="energy-particle p1"></span>
+                <span class="energy-particle p2"></span>
+                <span class="energy-particle p3"></span>
+                <span class="energy-particle p4"></span>
+                <span class="energy-particle p5"></span>
+            </div>
+
+            <!-- Realistic vector motor -->
+            <div class="motor-assembly" id="motorAssembly">
+
+                <div class="motor-shadow"></div>
+
+                <svg
+                    class="motor-svg"
+                    viewBox="0 0 900 470"
+                    role="img"
+                    aria-label="Industrial electric motor animation"
+                >
+                    <defs>
+                        <linearGradient id="bodyGrad" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#172532"/>
+                            <stop offset="20%" stop-color="#38566a"/>
+                            <stop offset="52%" stop-color="#162430"/>
+                            <stop offset="76%" stop-color="#314d60"/>
+                            <stop offset="100%" stop-color="#0d1820"/>
+                        </linearGradient>
+
+                        <linearGradient id="metalGrad" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#778a96"/>
+                            <stop offset="18%" stop-color="#e5edf2"/>
+                            <stop offset="45%" stop-color="#748793"/>
+                            <stop offset="72%" stop-color="#dbe5eb"/>
+                            <stop offset="100%" stop-color="#52646f"/>
+                        </linearGradient>
+
+                        <linearGradient id="darkMetal" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#0a1116"/>
+                            <stop offset="50%" stop-color="#3c4d58"/>
+                            <stop offset="100%" stop-color="#0a1116"/>
+                        </linearGradient>
+
+                        <radialGradient id="fanGrad">
+                            <stop offset="0%" stop-color="#5d7482"/>
+                            <stop offset="50%" stop-color="#243944"/>
+                            <stop offset="100%" stop-color="#0b151b"/>
+                        </radialGradient>
+
+                        <filter id="softGlow">
+                            <feGaussianBlur stdDeviation="7" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+
+                        <filter id="motorDrop">
+                            <feDropShadow
+                                dx="0"
+                                dy="20"
+                                stdDeviation="20"
+                                flood-color="#000000"
+                                flood-opacity=".6"
+                            />
+                        </filter>
+                    </defs>
+
+                    <!-- base feet -->
+                    <g filter="url(#motorDrop)">
+                        <path
+                            d="M257 350 H616 L660 414 H565 L542 382 H331 L305 414 H209 Z"
+                            fill="#101b22"
+                            stroke="#547082"
+                            stroke-width="4"
+                        />
+
+                        <!-- rear cap -->
+                        <ellipse
+                            cx="264"
+                            cy="241"
+                            rx="104"
+                            ry="132"
+                            fill="url(#fanGrad)"
+                            stroke="#638092"
+                            stroke-width="7"
+                        />
+
+                        <ellipse
+                            cx="264"
+                            cy="241"
+                            rx="79"
+                            ry="105"
+                            fill="#0b151c"
+                            stroke="#344b58"
+                            stroke-width="5"
+                        />
+
+                        <!-- fan -->
+                        <g
+                            id="motorFan"
+                            class="motor-fan"
+                            transform="translate(264 241)"
+                        >
+                            <circle r="20" fill="#8da2ae"/>
+
+                            <path d="M0 -21 C25 -88 55 -71 44 -28 C34 -5 13 3 0 -21Z" fill="#607986"/>
+                            <path d="M20 -4 C86 18 72 50 29 43 C5 38 -5 17 20 -4Z" fill="#607986"/>
+                            <path d="M8 19 C-18 83 -51 69 -44 28 C-39 4 -19 -5 8 19Z" fill="#607986"/>
+                            <path d="M-18 5 C-84 -20 -71 -51 -28 -43 C-4 -37 5 -17 -18 5Z" fill="#607986"/>
+                        </g>
+
+                        <!-- main cylindrical body -->
+                        <path
+                            d="M260 115
+                               C287 83 336 69 392 69
+                               H567
+                               C626 69 678 103 698 154
+                               V329
+                               C677 369 625 389 570 389
+                               H391
+                               C332 389 286 370 260 337 Z"
+                            fill="url(#bodyGrad)"
+                            stroke="#6f8b9b"
+                            stroke-width="6"
+                        />
+
+                        <!-- cooling fins -->
+                        <g class="motor-fins" stroke="#5b7483" stroke-width="7" opacity=".78">
+                            <line x1="331" y1="89" x2="331" y2="365"/>
+                            <line x1="365" y1="78" x2="365" y2="378"/>
+                            <line x1="400" y1="74" x2="400" y2="382"/>
+                            <line x1="435" y1="73" x2="435" y2="384"/>
+                            <line x1="470" y1="73" x2="470" y2="384"/>
+                            <line x1="505" y1="73" x2="505" y2="384"/>
+                            <line x1="540" y1="73" x2="540" y2="382"/>
+                            <line x1="575" y1="80" x2="575" y2="375"/>
+                            <line x1="610" y1="91" x2="610" y2="365"/>
+                        </g>
+
+                        <!-- top terminal box -->
+                        <path
+                            d="M405 46 H560 L594 91 H389 Z"
+                            fill="#192831"
+                            stroke="#708b9a"
+                            stroke-width="5"
+                        />
+                        <rect
+                            x="422"
+                            y="25"
+                            width="125"
+                            height="41"
+                            rx="8"
+                            fill="#263b48"
+                            stroke="#7893a2"
+                            stroke-width="4"
+                        />
+
+                        <!-- front flange -->
+                        <ellipse
+                            cx="689"
+                            cy="239"
+                            rx="83"
+                            ry="111"
+                            fill="url(#darkMetal)"
+                            stroke="#8298a5"
+                            stroke-width="6"
+                        />
+                        <ellipse
+                            cx="690"
+                            cy="239"
+                            rx="57"
+                            ry="78"
+                            fill="#0a1218"
+                            stroke="#536a78"
+                            stroke-width="5"
+                        />
+
+                        <!-- shaft -->
+                        <rect
+                            x="686"
+                            y="219"
+                            width="156"
+                            height="40"
+                            rx="12"
+                            fill="url(#metalGrad)"
+                            stroke="#c1d0d8"
+                            stroke-width="3"
+                        />
+                        <ellipse
+                            cx="839"
+                            cy="239"
+                            rx="19"
+                            ry="20"
+                            fill="#b9c9d2"
+                        />
+
+                        <!-- nameplate -->
+                        <rect
+                            x="445"
+                            y="180"
+                            width="125"
+                            height="79"
+                            rx="8"
+                            fill="#0d171d"
+                            stroke="#7893a2"
+                            stroke-width="3"
+                        />
+                        <text x="507" y="206" text-anchor="middle" fill="#83e8ff" font-size="15" font-family="Arial" font-weight="700">
+                            UNO Q
+                        </text>
+                        <text x="507" y="230" text-anchor="middle" fill="#d3e1e8" font-size="13" font-family="Arial">
+                            MOTOR DRIVE
+                        </text>
+                        <text x="507" y="249" text-anchor="middle" fill="#8ca7b7" font-size="10" font-family="Arial">
+                            LIVE DIGITAL TWIN
+                        </text>
+
+                        <!-- energy entry -->
+                        <circle
+                            id="energyPort"
+                            cx="342"
+                            cy="238"
+                            r="19"
+                            fill="#3ce4ff"
+                            opacity=".16"
+                            filter="url(#softGlow)"
+                        />
+                        <circle
+                            cx="342"
+                            cy="238"
+                            r="7"
+                            fill="#adf8ff"
+                        />
+                    </g>
+                </svg>
+
+                <div class="motor-energy-core"></div>
+
+                <div class="motor-readout">
+                    <span class="readout-label">MOTOR LINK</span>
+                    <span class="readout-value">SYNCHRONIZING</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="intro-progress">
+        <div class="intro-progress-bar"></div>
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DASHBOARD
+====================================================== -->
+
+<div id="dashboard" class="dashboard-shell dashboard-hidden">
+
+    <div class="container">
+
+        <header class="dashboard-header">
+
+            <div>
+                <div class="eyebrow">
+                    DIGITAL MOTOR CONTROL
+                </div>
+
+                <h1>
+                   NITTENOVA MOTOR MONITOR
+                </h1>
+
+                <p>
+                    Arduino UNO Q + INA219 + Gemma 3
+                </p>
+            </div>
+
+            <div
+                id="connection"
+                class="connection-pill offline"
+            >
+                ● CONNECTING
+            </div>
+
+        </header>
+
+
+        <!-- HERO MOTOR STATUS -->
+
+        <section class="motor-hero panel">
+
+            <div class="motor-hero-copy">
+
+                <div class="label">
+                    LIVE MOTOR STATE
+                </div>
+
+                <div class="hero-condition-row">
+                    <span
+                        id="condition"
+                        class="condition-value"
+                    >
+                        WAITING
+                    </span>
+
+                    <span id="motorLiveDot" class="motor-live-dot"></span>
+                </div>
+
+                <p id="conditionDescription">
+                    Waiting for live motor data.
+                </p>
+
+                <div class="hero-badges">
+                    <span class="hero-badge">
+                        INA219 • A4/A5
+                    </span>
+                    <span class="hero-badge">
+                        RELAY • D6
+                    </span>
+                    <span class="hero-badge">
+                        GEMMA • LOCAL
+                    </span>
+                </div>
+
+            </div>
+
+            <div id="dashboardMotor" class="dashboard-motor">
+
+                <div class="mini-energy-stream">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="mini-motor-body">
+                    <div class="mini-fins"></div>
+                    <div class="mini-cap">
+                        <div class="mini-fan"></div>
+                    </div>
+                    <div class="mini-shaft"></div>
+                    <div class="mini-nameplate">MOTOR</div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LIVE SENSOR DATA -->
+
+        <section class="panel">
+
+            <div class="section-heading">
+                <div>
+                    <div class="label">
+                        REAL-TIME TELEMETRY
+                    </div>
+                    <h2>
+                        Electrical performance
+                    </h2>
+                </div>
+
+                <div class="telemetry-pulse">
+                    LIVE
+                </div>
+            </div>
+
+
+            <div class="voltage-card">
+
+                <div class="label">
+                    SUPPLY VOLTAGE
+                </div>
+
+                <div class="voltage-value">
+
+                    <span id="voltage">
+                        0.00
+                    </span>
+
+                    <small>
+                        V
+                    </small>
+
+                </div>
+
+                <div class="threshold-note">
+                    Motor protection threshold: 20.5 V
+                </div>
+
+            </div>
+
+
+            <div class="grid telemetry-grid">
+
+
+                <div class="card metric-card">
+                    <div class="metric-icon">A</div>
+
+                    <div>
+                        <div class="label">
+                            CURRENT
+                        </div>
+
+                        <div class="value">
+                            <span id="current">
+                                0.000
+                            </span>
+                            <small>A</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card metric-card">
+                    <div class="metric-icon">W</div>
+
+                    <div>
+                        <div class="label">
+                            POWER
+                        </div>
+
+                        <div class="value">
+                            <span id="power">
+                                0.00
+                            </span>
+                            <small>W</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card metric-card">
+                    <div class="metric-icon">R</div>
+
+                    <div>
+                        <div class="label">
+                            RELAY
+                        </div>
+
+                        <div
+                            id="relay"
+                            class="value"
+                        >
+                            OFF
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card metric-card">
+                    <div class="metric-icon">6</div>
+
+                    <div>
+                        <div class="label">
+                            D6 OUTPUT
+                        </div>
+
+                        <div
+                            id="pin7"
+                            class="value"
+                        >
+                            HIGH
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- CONDITION -->
+
+        <section
+            id="conditionCard"
+            class="condition-card"
+        >
+
+            <div class="condition-strip">
+
+                <div>
+                    <div class="label">
+                        MOTOR CONDITION
+                    </div>
+
+                    <strong class="condition-strip-title">
+                        Protection state
+                    </strong>
+                </div>
+
+                <div class="condition-led-bank">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTROLLER -->
+
+        <section class="panel">
+
+            <div class="section-heading">
+                <div>
+                    <div class="label">
+                        CONTROLLER
+                    </div>
+
+                    <h2>
+                        MCU protection status
+                    </h2>
+                </div>
+            </div>
+
+
+            <div class="grid">
+
+                <div class="card">
+                    <div class="label">
+                        SYSTEM
+                    </div>
+
+                    <div
+                        id="armed"
+                        class="value"
+                    >
+                        NOT ARMED
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="label">
+                        SETTLING
+                    </div>
+
+                    <div
+                        id="settling"
+                        class="value"
+                    >
+                        NO
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GEMMA CHAT -->
+
+        <section class="chat-panel">
+
+            <div class="section-heading">
+                <div>
+                    <div class="label">
+                        LOCAL AI ASSISTANT
+                    </div>
+
+                    <h2>
+                        Ask Gemma
+                    </h2>
+                </div>
+
+                <div class="gemma-chip">
+                    GEMMA 3 • 1B
+                </div>
+            </div>
+
+
+            <p class="chat-info">
+                Gemma receives the current motor readings
+                only when you ask a question.
+            </p>
+
+
+            <div
+                id="chatMessages"
+                class="chat-messages"
+            >
+
+                <div class="gemma-message">
+
+                    <strong>
+                        Gemma
+                    </strong>
+
+                    <p>
+                        Ask me about the motor condition,
+                        voltage, current, power or relay.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="chatStatus"
+                class="chat-status"
+            ></div>
+
+
+            <div class="chat-input">
+
+                <input
+                    id="chatInput"
+                    type="text"
+                    placeholder="Is my motor working normally?"
+                >
+
+                <button id="sendButton">
+                    Ask Gemma
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            MCU controls protection • Gemma monitors and explains
+        </footer>
+
+    </div>
+
+</div>
+
+
+<script src="libs/socket.io.min.js"></script>
+<script src="libs/arduino.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
