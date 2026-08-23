@@ -1,88 +1,108 @@
-⚡ INDUsense AI
+# ⚡ INDUsense AI
 
-Predictive Maintenance, Protection & Interactive Local AI for Industrial Assets
+### Predictive Maintenance, Protection & Interactive Local AI for Industrial Assets
 
 <p align="center">
   <b>Arduino UNO Q • INA219 • Real-Time Protection • Digital Twin • Gemma 3 • Edge AI</b>
 </p>
 
-<p align="center">
+---
 
+## 🚀 What is INDUsense AI?
 
-🚀 What is INDUsense AI?
+**INDUsense AI** is a low-cost **Physical AI platform** designed to monitor, protect, and explain the behavior of industrial assets.
 
-INDUsense AI is a low-cost Physical AI platform for monitoring, protecting and explaining the behavior of industrial assets.
+The current prototype monitors a **24 V DC motor** and integrates:
 
-The current prototype monitors a 24 V DC motor and combines:
+* ⚡ Live voltage monitoring
+* 🔌 Current measurement
+* 📊 Real-time power calculation
+* 🛡️ Automatic relay-based protection
+* 🖥️ Live web dashboard
+* 🤖 Local Gemma AI assistant
+* 💬 Technician–machine interaction
+* 🧠 Edge intelligence with reduced cloud dependency
 
-⚡ Live voltage monitoring
+### 🎯 Long-Term Goal
 
-🔌 Current measurement
+The long-term vision is to expand the architecture to multiple industrial assets and create an **intelligent maintenance assistant for technicians**.
 
-📊 Real-time power calculation
+---
 
-🛡️ Automatic relay-based protection
+# 🎯 The Problem
 
-🖥️ Live web dashboard
+Modern industries contain large numbers of machines, making continuous manual inspection difficult, expensive, and time-consuming.
 
-🤖 Local Gemma AI assistant
+### Existing challenges
 
-💬 Technician-machine interaction
+* 🏭 Continuous monitoring of multiple machines is difficult.
+* ⚠️ Conventional monitoring systems often raise alarms without explaining the likely cause.
+* 📚 Technicians may need to search through manuals, datasheets, and technical documents to troubleshoot faults.
+* 💬 Most monitoring systems cannot directly interact with technicians.
+* ☁️ Heavy cloud dependency can introduce latency, connectivity, and operational costs.
 
-🧠 Edge intelligence with reduced cloud dependency
+### 💡 The Key Question
 
-The long-term goal is to expand this architecture to multiple industrial assets and create an intelligent maintenance assistant for technicians.
+> **What if a machine could monitor itself, protect itself, and explain its condition directly to the technician?**
 
-🎯 The Problem
+---
 
-🏭 Industries contain many machines, making continuous manual inspection difficult and costly.
+# 💡 Our Solution
 
-⚠️ Most monitoring systems only raise alarms instead of clearly explaining the likely problem.
+INDUsense AI combines **embedded sensing, real-time protection, visualization, and local AI** into a single architecture.
 
-📚 Technicians often need to search large manuals, datasheets or PDFs to troubleshoot a fault.
+The system:
 
-💬 Existing monitoring systems usually cannot directly interact with a technician.
+1. Continuously monitors important motor parameters.
+2. Detects abnormal electrical conditions.
+3. Protects the motor through a relay.
+4. Displays live operating conditions on a dashboard.
+5. Explains abnormal conditions in simple language.
+6. Allows technicians to directly ask questions.
+7. Reduces dependence on cloud-based AI systems.
 
-☁️ Heavy cloud dependency can introduce cost, latency and connectivity limitations.
+### 💬 Example Technician Queries
 
-What if a machine could monitor itself, protect itself and explain its condition directly to the technician?
-
-💡 Our Solution
-
-Continuously monitor important motor parameters.
-
-Detect abnormal electrical conditions.
-
-Protect the motor through a relay.
-
-Display live condition on a dashboard.
-
-Explain faults in simple language.
-
-Allow technicians to directly ask questions.
-
-Reduce dependence on cloud-based AI systems.
-
-Example questions:
-
+```text
 Why did the motor stop?
+
 What is the current voltage?
+
 Is the motor operating normally?
+
 What is the relay state?
+
 What is the current power consumption?
+```
 
-🧠 Why Arduino UNO Q?
+---
 
-1. Real-Time Control
+# 🧠 Why Arduino UNO Q?
 
-The MCU side reads the INA219 sensor and controls the relay independently from the AI.
+The **Arduino UNO Q** enables the system to combine real-time embedded control with Linux-based application computing on one platform.
 
-2. Local Application Computing
+### 1. ⚙️ Real-Time Control
 
-The Linux/application side runs Python, the web dashboard, RouterBridge and Gemma AI.
+The MCU side independently:
 
-3. One-Board Physical AI
+* Reads the INA219 sensor
+* Processes measurements
+* Executes protection logic
+* Controls the relay
 
+### 2. 🐍 Local Application Computing
+
+The Linux/application side runs:
+
+* Python
+* Web dashboard
+* RouterBridge
+* Gemma AI
+* Telemetry processing
+
+### 3. 🤖 One-Board Physical AI
+
+```text
 Sensing
    ↓
 Processing
@@ -94,299 +114,363 @@ Physical Action
 Visualization
    ↓
 AI Explanation
+```
 
-🏗️ System Architecture
+---
 
-24 V DC Supply
-      │
-      ▼
-   INA219
-Voltage + Current
-      │
-      ▼
- Arduino UNO Q
-   MCU Control
-  ┌────┴─────┐
-  │          │
-  ▼          ▼
-Relay      RouterBridge
-  │          │
-  ▼          ▼
-Motor      Python
-             │
-      ┌──────┴──────┐
-      ▼             ▼
-Dashboard        Gemma AI
+# 🏗️ System Architecture
 
-🔧 Hardware Used
+```text
+                24 V DC Supply
+                      │
+                      ▼
+                   INA219
+              Voltage + Current
+                      │
+                      ▼
+               Arduino UNO Q
+                MCU Control
+              ┌───────┴────────┐
+              │                │
+              ▼                ▼
+            Relay         RouterBridge
+              │                │
+              ▼                ▼
+            Motor            Python
+                               │
+                       ┌───────┴────────┐
+                       ▼                ▼
+                   Dashboard        Gemma AI
+```
 
-Component
+---
 
-Purpose
+# 🔧 Hardware
 
-Arduino UNO Q
+| Component                | Purpose                        |
+| ------------------------ | ------------------------------ |
+| **Arduino UNO Q**        | Central Physical AI platform   |
+| **INA219**               | Voltage and current monitoring |
+| **Relay Module**         | Motor protection and switching |
+| **24 V DC Motor**        | Monitored industrial asset     |
+| **24 V DC Power Supply** | Motor power source             |
+| **Jumper Wires**         | Electrical interconnection     |
+| **Web Browser**          | Dashboard and AI interaction   |
 
-Central Physical AI platform
+---
 
-INA219
+# 🔌 Pin Connections
 
-Voltage and current monitoring
+| Signal         | Arduino UNO Q |
+| -------------- | ------------- |
+| INA219 SDA     | A4            |
+| INA219 SCL     | A5            |
+| Relay Input    | D6            |
+| Serial Monitor | 9600 baud     |
 
-Relay Module
+### Relay Logic
 
-Motor protection / switching
+```text
+D6 LOW
+   ↓
+Relay ON
+   ↓
+Protection Active
 
-24 V DC Motor
 
-Monitored industrial asset
+D6 HIGH
+   ↓
+Relay OFF
+   ↓
+Motor Allowed to Run
+```
 
-24 V DC Power Supply
+> **Note:** The project uses **Wire2** for INA219 communication.
 
-Motor power source
+---
 
-Jumper Wires
+# 📐 Measurement Logic
 
-Electrical interconnection
+### Voltage
 
-Web Browser
+The supply voltage is calculated using the INA219 bus and shunt measurements:
 
-Dashboard and AI interaction
-
-🔌 Pin Connections
-
-Signal
-
-Arduino UNO Q
-
-INA219 SDA
-
-A4
-
-INA219 SCL
-
-A5
-
-Relay Input
-
-D6
-
-Serial Monitor
-
-9600 baud
-
-Relay Logic
-
-D6 LOW  → Relay ON  → Protection Active
-D6 HIGH → Relay OFF → Motor Allowed to Run
-
-The project uses Wire2 for INA219 communication.
-
-📐 Measurement Logic
-
-Supply Voltage
-
+```text
 V_supply = V_bus + (V_shunt_mV / 1000)
+```
 
-Current
+### Current
 
+```text
 I_A = I_mA / 1000
+```
 
-Power
+### Power
 
+```text
 P = V × I
+```
 
-Noise Reduction
+### Noise Reduction
 
+To reduce short-term fluctuations, the system averages 10 INA219 samples:
+
+```text
 V_avg = (V1 + V2 + ... + V10) / 10
+```
 
-The system averages 10 INA219 samples to reduce short spikes and improve stability.
+This helps reduce short spikes and provides a more stable measurement for monitoring and visualization.
 
-⚙️ MCU Control Flow
+---
 
-START
-  │
-  ▼
-Initialize UNO Q
-  │
-  ├── Relay D6
-  ├── LED Matrix
-  ├── RGB LED
-  ├── Wire2
-  └── INA219
-  │
-  ▼
-Read Voltage + Current
-  │
-  ▼
-Average Samples
-  │
-  ▼
-Calculate Power
-  │
-  ▼
-Compare With Protection Limit
-  │
-  ├── Normal → Relay OFF → Motor Running
-  │
-  └── Fault  → Relay ON  → Motor Protected
-  │
-  ▼
-Update Display + Dashboard
-  │
-  ▼
-Send Telemetry through RouterBridge
-  │
-  └──────── LOOP
+# ⚙️ MCU Control Flow
 
-📡 Telemetry Architecture
+```text
+                         START
+                           │
+                           ▼
+                    Initialize UNO Q
+                           │
+              ┌────────────┼────────────┐
+              │            │            │
+              ▼            ▼            ▼
+           Relay D6     LED Matrix    RGB LED
+                           │
+                           ▼
+                         Wire2
+                           │
+                           ▼
+                         INA219
+                           │
+                           ▼
+                Read Voltage + Current
+                           │
+                           ▼
+                    Average Samples
+                           │
+                           ▼
+                    Calculate Power
+                           │
+                           ▼
+             Compare With Protection Limit
+                       ┌───┴───┐
+                       │       │
+                    Normal    Fault
+                       │       │
+                       ▼       ▼
+                  Relay OFF  Relay ON
+                       │       │
+                       ▼       ▼
+                Motor Running  Motor Protected
+                       │       │
+                       └───┬───┘
+                           ▼
+                 Update Display
+                           │
+                           ▼
+                  Update Dashboard
+                           │
+                           ▼
+              Send Telemetry via RouterBridge
+                           │
+                           ▼
+                         LOOP
+```
 
-The MCU sends one compact telemetry packet:
+---
 
+# 📡 Telemetry Architecture
+
+The MCU sends a compact telemetry packet:
+
+```text
 voltage,current,power,relay,ready,settling,D6,condition
+```
 
-Field
+### Telemetry Fields
 
-Value
+| Field | Parameter               |
+| ----: | ----------------------- |
+|     1 | Voltage                 |
+|     2 | Current                 |
+|     3 | Power                   |
+|     4 | Relay state             |
+|     5 | Sensor/controller ready |
+|     6 | Settling state          |
+|     7 | D6 output               |
+|     8 | Motor condition         |
 
-1
+The compact telemetry structure minimizes communication overhead while providing the application layer with the information required for monitoring and AI interaction.
 
-Voltage
+---
 
-2
+# 🐍 Python + Web UI
 
-Current
+Python acts as the bridge between the embedded system, dashboard, and local AI.
 
-3
+### Python Responsibilities
 
-Power
+* 🔄 RouterBridge communication
+* 📡 Telemetry parsing
+* 📊 Live dashboard updates
+* ⚡ Fast local answers
+* 🤖 Gemma request handling
+* 💬 AI response streaming
 
-4
+### Dashboard Update Rate
 
-Relay state
+```text
+Update interval = 0.5 seconds
 
-5
+≈ 2 updates per second
+```
 
-Sensor/controller ready
+This provides a responsive real-time visualization of the motor's operating state.
 
-6
+---
 
-Settling state
+# 🤖 Smart AI Request Strategy
 
-7
+Not every question needs to be processed by the AI model.
 
-D6 output
+INDUsense AI uses a simple routing strategy.
 
-8
+```text
+                    User Question
+                         │
+                         ▼
+              Can Python answer directly?
+                    ┌────┴────┐
+                   YES        NO
+                    │          │
+                    ▼          ▼
+              Fast Answer   Gemma 3
+                             Local AI
+                                │
+                                ▼
+                           Explanation
+```
 
-Motor condition
+### ⚡ Simple Questions
 
-🐍 Python + WebUI
+Python responds directly to questions such as:
 
-Python handles:
-
-RouterBridge communication
-
-Telemetry parsing
-
-Live dashboard updates
-
-Fast local answers
-
-Gemma request handling
-
-AI response streaming
-
-Dashboard update interval:
-
-0.5 seconds
-
-That gives about:
-
-2 updates per second
-
-🤖 Smart AI Request Strategy
-
-Simple question:
-
+```text
 "What is the voltage?"
 
-Python answers immediately.
+"What is the current?"
 
-Complex question:
+"What is the power?"
 
+"What is the relay state?"
+```
+
+### 🧠 Complex Questions
+
+Gemma handles questions requiring interpretation or explanation:
+
+```text
 "Why did the motor behave abnormally?"
 
-Gemma handles the explanation.
+"What could have caused the motor to stop?"
 
-User Question
-      │
-      ▼
-Can Python answer directly?
-      │
-   ┌──┴──┐
-  YES    NO
-   │      │
-   ▼      ▼
-Fast     Gemma 3
-Answer   Local AI
-           │
-           ▼
-      Explanation
+"Explain the current motor condition."
+```
 
-🛡️ Safety Architecture
+This reduces unnecessary AI inference while keeping the interaction responsive.
 
-AI does not control the motor protection relay.
+---
 
-The MCU makes the protection decision.
+# 🛡️ Safety Architecture
 
-INA219 → MCU → Relay → Motor
-          │
-          └── Safety Authority
+A key design principle of INDUsense AI is:
 
-Gemma AI → Explanation Only → Technician
+> **The AI does not control the motor protection system.**
 
-This ensures protection still works even if the AI model is unavailable.
+The MCU remains the **safety authority**.
 
-🖥️ Digital Twin Dashboard
+```text
+              INA219
+                 │
+                 ▼
+                MCU
+                 │
+          Protection Logic
+                 │
+                 ▼
+               Relay
+                 │
+                 ▼
+               Motor
 
-The dashboard displays:
 
-⚡ Voltage
+              Gemma AI
+                 │
+                 ▼
+            Explanation
+                 │
+                 ▼
+             Technician
+```
 
-🔌 Current
+### Safety Principle
 
-🔋 Power
+Even if the AI model is unavailable, the embedded protection mechanism continues to operate independently.
 
-🛡️ Relay state
+This separates:
 
-📍 D6 output
+**Safety-critical control**
 
-⚙️ Motor condition
+from
 
-💡 Controller state
+**AI-based explanation.**
 
-🤖 Gemma assistant
+---
 
-The interface also includes:
+# 🖥️ Digital Twin Dashboard
 
-Cinematic industrial motor introduction
+The dashboard provides a digital representation of the physical motor and its current operating state.
 
-Animated motor graphics
+### Live Parameters
 
-Live motor-state visualization
+* ⚡ Voltage
+* 🔌 Current
+* 🔋 Power
+* 🛡️ Relay state
+* 📍 D6 output
+* ⚙️ Motor condition
+* 💡 Controller state
+* 🤖 Gemma AI assistant
 
-Responsive desktop/mobile layout
+### Interface Features
 
-Integrated AI chat
+* 🎬 Cinematic industrial motor introduction
+* ⚙️ Animated motor graphics
+* 📊 Live motor-state visualization
+* 📱 Responsive desktop/mobile layout
+* 💬 Integrated AI chat
 
-💬 Interactive Maintenance Assistant
+---
 
-Traditional monitoring:
+# 💬 Interactive Maintenance Assistant
 
-Machine → Alarm → Technician → Manual → Diagnosis
+Traditional monitoring systems generally follow:
 
-INDUsense AI:
+```text
+Machine
+   ↓
+Alarm
+   ↓
+Technician
+   ↓
+Manual / Documentation
+   ↓
+Diagnosis
+```
 
+INDUsense AI introduces an interactive approach:
+
+```text
 Machine
    │
    ▼
@@ -404,73 +488,84 @@ Technician asks:
    │
    ▼
 Simple Explanation
+```
 
-✨ What Makes INDUsense AI Unique?
+The objective is to turn machine data into information that is easier for technicians to understand and act upon.
 
-🔹 Hybrid edge architecture
+---
 
-🔹 One-board Physical AI
+# ✨ What Makes INDUsense AI Different?
 
-🔹 Interactive asset monitoring
+### 🔹 Hybrid Edge Architecture
 
-🔹 Digital-twin visualization
+Combines real-time MCU control with Linux-based local application computing.
 
-🔹 Reduced cloud dependency
+### 🔹 One-Board Physical AI
 
-🔹 Explainable protection
+Sensing, processing, decision-making, physical action, visualization, and AI interaction are integrated into one platform.
 
-🔹 Compact telemetry
+### 🔹 Interactive Asset Monitoring
 
-🔹 Multi-level feedback
+The technician can interact directly with the machine's live data.
 
+### 🔹 Digital Twin Visualization
+
+The physical motor is represented through a live digital interface.
+
+### 🔹 Reduced Cloud Dependency
+
+Local processing and AI reduce dependence on continuous cloud connectivity.
+
+### 🔹 Explainable Protection
+
+The system combines automatic protection with human-readable explanations.
+
+### 🔹 Compact Telemetry
+
+A lightweight telemetry packet efficiently transfers the required operating information.
+
+### 🔹 Multi-Level Feedback
+
+The system provides feedback through multiple interfaces:
+
+```text
 Serial Monitor
-     +
+      +
 LED Matrix
-     +
+      +
 RGB LED
-     +
+      +
 Web Dashboard
-     +
+      +
 Gemma AI
+```
 
-🧩 Physical AI Mapping
+---
 
-Physical AI Stage
+# 🧩 Physical AI Mapping
 
-INDUsense AI
+| Physical AI Stage | INDUsense AI                     |
+| ----------------- | -------------------------------- |
+| 👁️ **Sense**     | INA219                           |
+| 🧠 **Process**    | Arduino UNO Q MCU                |
+| ⚖️ **Decide**     | Protection logic                 |
+| ⚙️ **Act**        | Relay                            |
+| 📊 **Visualize**  | LED Matrix + RGB LED + Dashboard |
+| 💬 **Explain**    | Gemma AI                         |
 
-Sense
+---
 
-INA219
+# 🧪 Current Prototype
 
-Process
+### Current Monitored Asset
 
-Arduino UNO Q MCU
+**24 V DC Motor**
 
-Decide
+The prototype establishes the core architecture for monitoring and protecting an electrical asset while enabling local AI-based interaction.
 
-Protection logic
+### 🔮 Potential Future Assets
 
-Act
-
-Relay
-
-Visualize
-
-LED Matrix + RGB + Dashboard
-
-Explain
-
-Gemma AI
-
-🧪 Current Prototype
-
-Currently monitored asset:
-
-24 V DC Motor
-
-Future expansion:
-
+```text
 Motors
 Pumps
 Compressors
@@ -478,95 +573,135 @@ Conveyors
 Fans
 Industrial Drives
 Production Equipment
+```
 
-🔮 Future Scope
+---
 
-📈 Edge Impulse anomaly detection
+# 🔮 Future Scope
 
-📳 Vibration monitoring
+The platform can be extended with additional sensing and intelligence capabilities.
 
-🌡️ Motor temperature sensing
+### 📈 Predictive Maintenance
 
-🔄 Real RPM measurement
+* Edge Impulse anomaly detection
+* Predictive-maintenance scoring
+* Long-term trend analysis
+* Event and fault logging
 
-📊 Predictive-maintenance scoring
+### 📡 Additional Sensors
 
-🗃️ Event and fault logging
+* 📳 Vibration monitoring
+* 🌡️ Motor temperature sensing
+* 🔄 Real RPM measurement
 
-📉 Long-term trend analysis
+### 🤖 Intelligent Assistance
 
-🔔 Maintenance notifications
+* 🔔 Maintenance notifications
+* 🎙️ Voice-based assistant
+* 📄 Automatic maintenance reports
+* 🧠 Asset-specific AI models
 
-🎙️ Voice assistant
+### 🏭 Multi-Asset Monitoring
 
-📄 Automatic maintenance reports
+Expand from a single motor to an entire industrial environment.
 
-🏭 Multi-asset monitoring
+---
 
-🧠 Asset-specific AI models
+# 🌍 Our Vision
 
-🌍 Our Vision
+### Today
 
-Today:
-1 Motor
+```text
+                    1 Motor
+                       │
+                       ▼
+                 INDUsense AI
+                       │
+                       ▼
+              Interactive Technician
+                   Assistant
+```
 
-Tomorrow:
-1 Factory
-   │
-   ├── Motor 1
-   ├── Motor 2
-   ├── Pump
-   ├── Compressor
-   ├── Conveyor
-   └── Production Asset
-          │
-          ▼
-      INDUsense AI
-          │
-          ▼
-   Interactive Technician
-        Assistant
+### Tomorrow
 
-👥 Team NitteNova
+```text
+                    1 Factory
+                       │
+        ┌──────────────┼──────────────┐
+        │              │              │
+        ▼              ▼              ▼
+     Motor 1         Motor 2         Pump
+        │              │              │
+        └──────────────┼──────────────┘
+                       │
+                       ▼
+                  Compressor
+                       │
+                       ▼
+                   Conveyor
+                       │
+                       ▼
+              Production Assets
+                       │
+                       ▼
+                 INDUsense AI
+                       │
+                       ▼
+            Interactive Technician
+                  Assistant
+```
 
-Institution: Nitte Meenakshi Institute of Technology
+The ultimate goal is to build a scalable intelligent asset-monitoring platform capable of supporting multiple machines across an industrial environment.
 
-Team Members
+---
 
-Dr. Singaravelan A
+# 👥 Team NitteNova
 
-Keerthana Bhat
+**Institution:**
+Nitte Meenakshi Institute of Technology, Bengaluru
 
-Manas Reddy
+### Team Members
 
-Sai Vikas PS
+* **Dr. Singaravelan A**
+* **Keerthana Bhat**
+* **Manas Reddy**
+* **Sai Vikas PS**
 
-🏆 Arduino Physical AI Challenge 2026
+---
 
-This project demonstrates:
+# 🏆 Arduino Physical AI Challenge 2026
 
-Physical sensing
+INDUsense AI demonstrates the integration of:
 
-Embedded intelligence
+* ⚡ Physical sensing
+* 🔧 Embedded intelligence
+* ⚙️ Real-time actuation
+* 🧠 Edge AI
+* 💬 Human–machine interaction
+* 🔍 Local AI explanation
+* 🛡️ Real-time protection
 
-Real-time actuation
+---
 
-Edge AI
+# 🎥 Demo
 
-Human-machine interaction
+▶️ **Watch the Demo**
 
-Local AI explanation
+*Add your demo video/link here.*
 
-🎥 Demo
+---
 
-▶️ Watch the Demo
+# 🔗 Repository
 
-🔗 Repository
+**INDUsense AI Repository**
 
-INDUsense AI Repository
+*Add your GitHub repository link here.*
 
-📁 Project Structure
+---
 
+# 📁 Project Structure
+
+```text
 INDUsense-AI/
 │
 ├── sketch/
@@ -584,35 +719,46 @@ INDUsense-AI/
 ├── app.yaml
 │
 └── README.md
+```
 
-⚠️ Safety Note
+---
 
-This project is a research and competition prototype.
+# ⚠️ Safety Note
 
-For industrial deployment, additional protection should include:
+**INDUsense AI is currently a research and competition prototype.**
 
-Electrical isolation
+For industrial deployment, additional safety and protection mechanisms would be required, including:
 
-Correct relay/contact ratings
+* Electrical isolation
+* Correct relay/contact ratings
+* Appropriate fusing
+* Industrial-grade enclosure
+* Emergency-stop system
+* EMI protection
+* Certified motor-protection hardware
+* Appropriate electrical safety standards and testing
 
-Fusing
+The prototype should **not be treated as a certified industrial protection system**.
 
-Industrial enclosure
+---
 
-Emergency-stop system
+# ⭐ Final Vision
 
-EMI protection
+INDUsense AI aims to transform industrial monitoring from simple **fault detection** into **intelligent, interactive, and explainable asset maintenance**.
 
-Certified motor protection hardware
-
-⭐ Final Vision
-
-INDUsense AI transforms industrial monitoring from simple fault detection into intelligent, interactive and explainable asset maintenance.
+```text
+┌─────────────────────────────────────────┐
+│                                         │
+│       SENSE • PROTECT • EXPLAIN         │
+│               • INTERACT                │
+│                                         │
+└─────────────────────────────────────────┘
+```
 
 <p align="center">
-  <b>Sense • Protect • Explain • Interact</b>
+  <b>Built with ❤️ using Arduino UNO Q</b>
 </p>
 
 <p align="center">
-  Built with ❤️ using Arduino UNO Q
-</p>**
+  <i>INDUsense AI — Making industrial assets more observable, protected, and interactive.</i>
+</p>
